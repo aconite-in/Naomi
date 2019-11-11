@@ -38,7 +38,8 @@ resource "azurerm_network_interface" "example" {
   ip_configuration {
     name                          = "configuration"
     subnet_id                     = "${azurerm_subnet.example.id}"
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "static"
+    private_ip_address            = "10.0.2.5"
     public_ip_address_id          = "${azurerm_public_ip.example.id}"
   }
 }

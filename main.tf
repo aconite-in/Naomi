@@ -3,7 +3,7 @@ resource "azurerm_virtual_machine" "example" {
   location              = "${azurerm_resource_group.example.location}"
   resource_group_name   = "${azurerm_resource_group.example.name}"
   network_interface_ids = ["${azurerm_network_interface.example.id}"]
-  vm_size               = "Standard_B1ls"
+  vm_size               = "Standard_DS1_v2"
 
   # This means the OS Disk will be deleted when Terraform destroys the Virtual Machine
   # NOTE: This may not be optimal in all cases.
@@ -35,5 +35,17 @@ resource "azurerm_virtual_machine" "example" {
 
   provisioner "local-exec" {
     command = "echo VM_Hello"
+  }
+
+  provisioner "local-exec" {
+    command = "./provision/environment/dev/scripts/dynamicinventory.sh"
+  }
+
+  provisioner "local-exec" {
+    command = "sleep 180;sed -i 's/{host}/${azurerm_public_ip.example.id}/g' ./provision/environment/dev/inventory/inventory"
+  }
+
+  provisioner "local-exec" {
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./provision/environment/dev/playbooks/webservers.yml -i ./provision/environment/dev/inventory/inventory"
   }
 }
