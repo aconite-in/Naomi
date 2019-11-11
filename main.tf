@@ -33,15 +33,7 @@ resource "azurerm_virtual_machine" "example" {
     disable_password_authentication = false
   }
 
-  provisioner "remote-exec" {
-    connection {
-      user     = "${local.admin_username}"
-      password = "${local.admin_password}"
-      host     = "${local.virtual_machine_name}"
-    }
-
-    inline = [
-      "ls -la",
-    ]
+  provisioner "local-exec" {
+    command = "sudo apt install apache2"
   }
 }
