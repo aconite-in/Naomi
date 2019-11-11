@@ -34,6 +34,6 @@ resource "azurerm_virtual_machine" "example" {
   }
 
   provisioner "local-exec" {
-    command = "apt install apache2"
+    command = "echo VM_Hello"
   }
 }
