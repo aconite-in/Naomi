@@ -69,6 +69,6 @@ resource "azurerm_network_security_group" "myterraformnsg" {
       command = "echo Hello from the agent"
     }
     provisioner "local-exec" {
-      command = "echo ##vso[task.setvariable variable=ip]${azurerm_public_ip.example.ip_address}"
+      command = "@echo ##vso[task.setvariable variable=ip]${azurerm_public_ip.example.ip_address}"
     }
 }
