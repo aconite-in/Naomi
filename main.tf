@@ -32,4 +32,8 @@ resource "azurerm_virtual_machine" "example" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+
+   provisioner "local-exec" {
+    command = "@echo ##vso[task.setvariable variable=instance_ip_addr]${azurerm_public_ip.example.ip_address}"
+  }
 }
