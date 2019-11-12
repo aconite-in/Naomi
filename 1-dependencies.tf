@@ -64,4 +64,8 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     tags = {
         environment = "Terraform Demo"
     }
+    
+    provisioner "local-exec" {
+      command = "@echo ##vso[task.setvariable variable=instance_ip_addr]${azurerm_public_ip.example.ip_address}"
+    }
 }
