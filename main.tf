@@ -32,20 +32,4 @@ resource "azurerm_virtual_machine" "example" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-
-  provisioner "local-exec" {
-    command = "echo VM_Hello"
-  }
-
-  provisioner "local-exec" {
-    command = "./provision/environment/dev/scripts/dynamicinventory.sh"
-  }
-
-  provisioner "local-exec" {
-    command = "sleep 180;sed -i 's/{host}/${azurerm_public_ip.example.id}/g' ./provision/environment/dev/inventory/inventory"
-  }
-
-  provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./provision/environment/dev/playbooks/webservers.yml -i ./provision/environment/dev/inventory/inventory"
-  }
 }
