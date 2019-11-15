@@ -7,3 +7,9 @@ export ARM_SUBSCRIPTION_ID=$3
 export ARM_TENANT_ID=$4
 terraform init
 terraform plan -out plan.out
+
+export vmss_ip=$(terraform output instance_ip_addr)
+echo "host1 ansible_ssh_port=50001 ansible_ssh_host=$vmss_ip" > inventory
+echo "host2 ansible_port=50002 ansible_ssh_host=$vmss_ip" >> inventory
+
+cat inventory
