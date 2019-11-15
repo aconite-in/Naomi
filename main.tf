@@ -1,3 +1,8 @@
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+}
+
 resource "azurerm_virtual_machine" "example" {
   name                  = "${local.virtual_machine_name}"
   location              = "${azurerm_resource_group.example.location}"
