@@ -11,5 +11,9 @@ terraform apply -auto-approve
 
 export vmss_ip=$(terraform output instance_ip_addr)
 echo "host1 ansible_ssh_port=22 ansible_ssh_host=$vmss_ip" > inventory
+echo "[all:vars]" >> inventory
+echo "ansible_connection=ssh" >> inventory
+echo "ansible_user=testadmin" >> inventory
+echo "ansible_ssh_pass=Password1234!" >> inventory
 
 cat inventory
