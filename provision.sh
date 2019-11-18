@@ -19,3 +19,4 @@ echo "ansible_user=testadmin" >> inventory
 echo "ansible_ssh_pass=Password1234!" >> inventory
 
 cat inventory
+export ANSIBLE_HOST_KEY_CHECKING=False
