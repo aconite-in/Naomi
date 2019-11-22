@@ -5,9 +5,9 @@
   sudo_user: azure-admin
   gather_facts: no
   tasks:
-  - name: Install Apache
-    apt: name=apache2 state=present
+  - name: Install nodejs
+    apt: name=nodejs state=present
     become_user: root
-  - name: Start Apache
-    service: name=apache2 state=started
+  - name: Install Express
+    shell: npm install express
     become_user: root
