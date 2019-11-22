@@ -8,6 +8,3 @@
   - name: Install nodejs
     apt: name=nodejs state=present
     become_user: root
-  - name: Install Express
-    shell: npm install express
-    become_user: root
