@@ -9,7 +9,7 @@ export ARM_SUBSCRIPTION_ID=$3
 export ARM_TENANT_ID=$4
 terraform init
 terraform plan -out plan.out
-terraform apply -auto-approve
+#terraform apply -auto-approve
 
 export vmss_ip=$(terraform output instance_ip_addr)
 echo "host1 ansible_ssh_port=22 ansible_ssh_host=$vmss_ip" > inventory
@@ -20,6 +20,6 @@ echo "ansible_ssh_pass=Password1234!" >> inventory
 
 cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
-
+ls
 
 sudo sshpass -p "Password1234!" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r _aconite-in.Sonic/drop/Sonic testadmin@$vmss_ip:~/
