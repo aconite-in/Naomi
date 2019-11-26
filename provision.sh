@@ -22,8 +22,4 @@ cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 
-spawn scp -r scp -r testadmin@$vmss_ip:/home/testadmin/ /home/vsts/work/r1/a/_aconite-in.Sonic/drop/
-expect "password:"
-send "Password1234!\r"
-expect "*\r"
-expect "\r"
+sshpass -p "Password1234!" scp -r /home/abhishek/ testadmin@$vmss_ip:/home/testadmin/
