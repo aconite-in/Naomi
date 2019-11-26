@@ -11,3 +11,7 @@
   - name: Install npm
     apt: name=npm state=present
     become_user: root
+  - name: Install Http-server
+    shell: npm install http-server -g
+  - name: Straring Http-server
+    shell: http-server -p 8090 ~/Sonic/
