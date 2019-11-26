@@ -20,3 +20,10 @@ echo "ansible_ssh_pass=Password1234!" >> inventory
 
 cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
+
+
+spawn scp -r scp -r testadmin@$vmss_ip:/home/testadmin/ /home/vsts/work/r1/a/_aconite-in.Sonic/drop/
+expect "password:"
+send "Password1234!\r"
+expect "*\r"
+expect "\r"
