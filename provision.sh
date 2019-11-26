@@ -22,4 +22,4 @@ cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 
-sudo sshpass -p "Password1234!" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r $(System.DefaultWorkingDirectory)/_aconite-in.Sonic/drop/Sonic testadmin@$vmss_ip:~/
+sudo sshpass -p "Password1234!" scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -r ../../_aconite-in.Sonic/drop/Sonic testadmin@$vmss_ip:~/
