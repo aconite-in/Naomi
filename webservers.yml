@@ -16,3 +16,4 @@
     become_user: root
   - name: Straring Http-server
     shell: http-server -p 80 ~/Sonic/
+    become_user: root
