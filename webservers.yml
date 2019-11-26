@@ -8,3 +8,6 @@
   - name: Install nodejs
     apt: name=nodejs state=present
     become_user: root
+  - name: Install npm
+    apt: name=npm state=present
+    become_user: root
