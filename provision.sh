@@ -22,4 +22,4 @@ cat inventory
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 
-sshpass -p "Password1234!" scp -r /home/abhishek/ testadmin@$vmss_ip:/home/testadmin/
+sshpass -p "Password1234!" scp -r /home/vsts/work/r1/a/_aconite-in.Sonic/drop/ testadmin@$vmss_ip:/home/testadmin/
