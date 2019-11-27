@@ -15,5 +15,5 @@
     shell: npm install http-server -g
     become_user: root
   - name: Straring Http-server
-    shell: http-server -p 80 ~/Sonic/
+    shell: http-server ~/Sonic/ &
     become_user: root
