@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+    finally:
+      - echo This always runs even if the update or install command fails 
+  artifacts:
+    files:
+      - "**/*"
+    name: artifact-name
+    discard-paths: yes
+    base-directory: location
+  
+ 
