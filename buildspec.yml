@@ -12,6 +12,6 @@ artifacts:
     - "**/*"
   name: naomi
   discard-paths: yes
-  base-directory: location
+  base-directory: .
   
  
