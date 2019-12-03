@@ -10,7 +10,7 @@ phases:
 artifacts:
   files:
     - "**/*"
-  name: artifact-name
+  name: naomi
   discard-paths: yes
   base-directory: location
   
